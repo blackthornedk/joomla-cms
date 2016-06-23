@@ -260,7 +260,8 @@ class JHttpTransportCurl implements JHttpTransport
 		 * also be included. So we split the response into header + body + the number of redirects and only use the last two
 		 * sections which should be the last set of headers and the actual body.
 		 */
-		$response = explode("\r\n\r\n", $content, 2 + $redirects);
+        //$response = explode("\r\n\r\n", $content, 2 + $redirects);
+        $response = explode("\r\n\r\n", $content);
 
 		// Set the body for the response.
 		$return->body = array_pop($response);
